@@ -1,0 +1,15 @@
+#!/bin/bash
+#PBS -l nodes=1:ppn=1,walltime=30:00 
+#PBS -N project_3
+#PBS -q edu_shared
+#PBS -m abe
+#PBS -M akatej2@uic.edu
+
+#PBS -e Matrix_Pow_Det.err
+#PBS -o Matrix_Pow_Det.out
+#PBS -d /export/home/akatej2
+
+
+module load tools/mpich2-1.5-gcc
+
+mpirun -machinefile $PBS_NODEFILE -np $PBS_NP ./Matrix_Pow_Det
